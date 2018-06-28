@@ -10,8 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet (urlPatterns = "/fazTudo")
-public class FazTudo extends HttpServlet{
+@WebServlet (urlPatterns = "/executa")
+public class Controller extends HttpServlet{
 	
 
 		@Override
@@ -22,10 +22,10 @@ public class FazTudo extends HttpServlet{
 			if (tarefa == null) {
 				throw new IllegalArgumentException("Você esqueceu de passar a tarefa");
 			}
+			tarefa = "br.com.alura.gerenciador.web." + tarefa;
 			try {
-			    tarefa = "br.com.alura.gerenciador.web." + tarefa;
-				Class type = Class.forName(tarefa);
-				Tarefa instancia =(Tarefa) type.newInstance();
+				Class <?>tipo = Class.forName(tarefa);
+				Tarefa instancia =(Tarefa) tipo.newInstance();
 				String pagina = instancia.executa(req, resp);
 				
 				RequestDispatcher dispatcher= req.getRequestDispatcher(pagina);

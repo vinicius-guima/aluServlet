@@ -9,14 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.catalina.connector.Request;
+
 import br.com.alura.gerenciador.Empresa;
 import br.com.alura.gerenciador.dao.EmpresaDAO;
 
 @WebServlet(urlPatterns = "/novaEmpresa")
-public class NovaEmpresa implements Tarefa {
+public class NovaEmpresa extends HttpServlet {
 	
 	@Override
-	public String executa(HttpServletRequest req, HttpServletResponse resp) {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		
 		
 		String nome = req.getParameter("nome");
@@ -26,7 +28,8 @@ public class NovaEmpresa implements Tarefa {
 		
 		req.setAttribute("nome", nome);
 		
-		return "/WEB-INF/paginas/novaEmpresa.jsp";
+		RequestDispatcher dispatcher =  req.getRequestDispatcher("/WEB-INF/paginas/novaEmpresa.jsp");
+		dispatcher.forward(req, resp);
 		
 		
 	}
