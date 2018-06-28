@@ -33,7 +33,7 @@ public class Login extends HttpServlet {
 			pw.write("<html><body> Usuario ou senha invalidos! </body></html>");
 		}else {
 			HttpSession session = req.getSession();
-			session.setAttribute("usuario.logado",usuario);
+			session.setAttribute("usuarioLogado",usuario);
 			pw.write("<html><body> Usuario logado: "+ email +  " </body></html>");
 		}
 				
