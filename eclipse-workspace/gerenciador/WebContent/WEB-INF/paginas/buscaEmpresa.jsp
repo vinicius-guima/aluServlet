@@ -8,7 +8,7 @@
 <body>
 	Resultado da busca :
 	<ul>
-		<c:forEach var="empresa" items= "${empresas}">
+		<c:forEach var="empresa" items= "${empresas }">
 			<li>${empresa.id}: ${empresa.nome}</li>
 		</c:forEach>
 	</ul>

@@ -5,6 +5,9 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>gerenciador</display-name>
 	
+	<session-config>
+		<tracking-mode>COOKIE</tracking-mode>
+	</session-config> 
 	
 	<welcome-file-list>
 		<welcome-file>index.html</welcome-file>
